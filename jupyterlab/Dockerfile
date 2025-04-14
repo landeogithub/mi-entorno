@@ -9,12 +9,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Establece el directorio de trabajo
-WORKDIR /app
+# WORKDIR /app
+WORKDIR /home/jovyan/work
 
 # Instala paquetes de Python
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir \
         jupyterlab \
+        mlflow \
         pandas \
         scikit-learn
 

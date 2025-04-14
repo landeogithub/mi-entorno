@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Establece el directorio de trabajo
-WORKDIR /app
+#WORKDIR /app
+WORKDIR /home/jovyan/work
 
 # Instala MLflow y el conector para PostgreSQL
 RUN pip install --upgrade pip && \

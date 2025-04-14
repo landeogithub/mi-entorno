@@ -8,6 +8,7 @@ services:
       - "8888:8888"
     volumes:
       - ./notebooks:/home/jovyan/work
+      #- ./notebooks:/app
     networks:
       - ml_net
 
@@ -34,6 +35,9 @@ services:
       - "5000:5000"
     environment:
       - MLFLOW_TRACKING_URI=postgresql://mlflow:mlflow123@postgres:5432/mlflow_db
+    volumes:
+      #- ./mlruns:/app/mlruns
+      - ./mlruns:/home/jovyan/work
     command: >
       mlflow ui
       --backend-store-uri postgresql://mlflow:mlflow123@postgres:5432/mlflow_db
