@@ -15,15 +15,14 @@ WORKDIR /app
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir \
         jupyterlab \
-        mlflow \
         pandas \
         scikit-learn
 
 # Copia el archivo de configuración de Supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expone los puertos de JupyterLab y MLflow
-EXPOSE 8888 5000
+# Expone los puertos de JupyterLab
+EXPOSE 8888
 
 # Comando por defecto: iniciar supervisord
 CMD ["/usr/bin/supervisord"]

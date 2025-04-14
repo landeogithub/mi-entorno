@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   jupyter:
-    image: luisalvarez/jupyterlab-custom:latest
-    container_name: jupyter_lab
+    image: lalvarezl/jupyterlab:laal
+    container_name: cnt_jupyterlab
     ports:
       - "8888:8888"
     volumes:
@@ -12,8 +12,8 @@ services:
       - ml_net
 
   postgres:
-    image: postgres:14
-    container_name: mlflow_postgres
+    image: lalvarezl/postgresql:laal
+    container_name: cnt_postgresql
     environment:
       POSTGRES_USER: mlflow
       POSTGRES_PASSWORD: mlflow123
@@ -26,8 +26,8 @@ services:
       - ml_net
 
   mlflow:
-    image: luisalvarez/mlflow-custom:latest
-    container_name: mlflow_app
+    image: lalvarezl/mlflow:laal
+    container_name: cnt_mlflow
     depends_on:
       - postgres
     ports:
